@@ -6,11 +6,13 @@
 #	5. Check again for win or tie
 #	6. Go back to 1.
 
-# Define global functions for the game
+# Define global variables for the game
 
 board = ["-", "-", "-",
         "-", "-", "-",
         "-", "-", "-"]
+
+# Define a function to draw the board
 
 def printBoard(board):
     print(board[0] + "  |  " + board[1] + "  |  " + board[2])
@@ -19,4 +21,8 @@ def printBoard(board):
     print("--------------")
     print(board[6] + "  |  " + board[7] + "  |  " + board[8])
     
-printBoard(board)
+# Take player input
+
+def playerInput(board):
+    inp = int(input('Enter a number 1 - 9: "'))
+    
