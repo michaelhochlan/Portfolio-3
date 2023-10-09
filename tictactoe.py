@@ -14,6 +14,8 @@ board = ["-", "-", "-",
 
 currentPlayer = 'X'
 
+gameRunning = True
+
 # Define a function to draw the board
 
 def printBoard(board):
@@ -26,8 +28,20 @@ def printBoard(board):
 # Take player input
 
 def playerInput(board):
-    inp = int(input('Enter a number 1 - 9: "'))
-    if inp>= 1 and inp <= 9 and board[inp-1] == "-": # [inp-1] because the list index starts with 0
+    try:
+    	inp = int(input('Enter a number 1 - 9: '))
+    except ValueError:
+        print("Please enter a valid number 1 - 9")
+        return
+    if inp >= 1 and inp <= 9 and board[inp-1] == "-": # [inp-1] because the list index starts with 0
         board[inp-1] = currentPlayer # change list item from - to X
     else:
-        print('Sorry, that field is already taken!')
+        print('Sorry, that is not a valid entry!')
+
+        
+
+# Check the game so far
+
+while gameRunning:
+    printBoard(board)
+    playerInput(board)
