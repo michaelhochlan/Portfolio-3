@@ -31,7 +31,7 @@ def playerInput(board):
     try:
     	inp = int(input('Enter a number 1 - 9: '))
     except ValueError:
-        print("Please enter a valid number 1 - 9")
+        print("Sorry, that is not a valid entry!")
         return
     if inp >= 1 and inp <= 9 and board[inp-1] == "-": # [inp-1] because the list index starts with 0
         board[inp-1] = currentPlayer # change list item from - to X
