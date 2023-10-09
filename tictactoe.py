@@ -2,7 +2,7 @@
 #	1. Create the board
 #	2. Take first player input
 #	3. Check for win or tie
-#	4. Take second player input
+#	4. Take computer input
 #	5. Check again for win or tie
 #	6. Go back to 1.
 
@@ -15,6 +15,8 @@ board = ["-", "-", "-",
 currentPlayer = 'X'
 
 gameRunning = True
+
+winner = None
 
 # Define a function to draw the board
 
@@ -38,10 +40,19 @@ def playerInput(board):
     else:
         print('Sorry, that is not a valid entry!')
 
-        
+# check for a winner or a tie
+
+def checkHorizontle(board):
+    global winner
+    if board[0] == board[1] == board[2] and board[1] != "-":
+        winner = board[1]
+        print('You won')
+        # return True
+    
 
 # Check the game so far
 
 while gameRunning:
     printBoard(board)
     playerInput(board)
+    checkHorizontle(board)
