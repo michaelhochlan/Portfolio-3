@@ -31,7 +31,7 @@ def printBoard(board):
 
 def playerInput(board):
     try:
-    	inp = int(input('Enter a number 1 - 9: '))
+        inp = int(input('Enter a number 1 - 9: '))
     except ValueError:
         print("Sorry, that is not a valid entry!")
         return
@@ -43,11 +43,19 @@ def playerInput(board):
 # check for a winner or a tie
 
 def checkHorizontle(board):
-    global winner
-    if board[0] == board[1] == board[2] and board[1] != "-":
-        winner = board[1]
+	global winner
+	if board[0] == board[1] == board[2] and board[1] != "-":
+        winner = board[3]
         print('You won')
-        # return True
+        return True
+    elif board[3] == board[4] == board[5] and board[3] != "-":
+	    winner = board[4]
+        print('You won')
+        return True
+    elif board[6] == board[7] == board[8] and board[6] != "-":
+        winner = board[5]
+        print('You won')
+        return True
     
 
 # Check the game so far
